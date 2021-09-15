@@ -125,7 +125,7 @@ class PurchaseRemoveBasketTest {
 
 	public void testRemoveBasket5() {
 
-		double expected = 939.96;
+		double expected = 234.99;
 
 		quantity = 4;
 
@@ -137,7 +137,7 @@ class PurchaseRemoveBasketTest {
 
 			double resultado = basket.removeBasket(article, 1);
 
-			assertEquals(expected, resultado);
+			assertEquals( expected,resultado);
 
 		} catch (PurchaseException e) {
 

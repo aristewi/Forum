@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>PurchaseAddBasketTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Forum (16 sept 2021 0:56:22)</a> &gt; <a href="../../index.html" class="el_group">Forum</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">PurchaseAddBasketTest.java</span></div><h1>PurchaseAddBasketTest.java</h1><pre class="source lang-java linenums">package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import java.text.ParseException;
+
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.BeforeAll;
+
+import org.junit.jupiter.api.DisplayName;
+
+import domain.Article;
+
+import domain.Purchase;
+
+import exceptions.PurchaseException;
+
+<span class="fc" id="L23">public class PurchaseAddBasketTest {</span>
+
+<span class="fc" id="L25">	private static Purchase basket = new Purchase();</span>
+	private double price;
+
+<span class="fc" id="L28">	private int quantity = 1;</span>
+
+<span class="fc" id="L30">	private static Article article;</span>
+
+	@BeforeAll
+
+	public static void initialize() {
+
+<span class="fc" id="L36">		System.out.println(&quot;Inicializo y compruebo ...&quot;);</span>
+
+<span class="fc" id="L38">		assertNull(basket.getDate());</span>
+
+<span class="fc" id="L40">		assertEquals(basket.getCost(), 0);</span>
+
+<span class="fc" id="L42">		double price = 234.99;</span>
+
+<span class="fc" id="L44">		int quantity = 1;</span>
+
+<span class="fc" id="L46">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
+
+<span class="fc" id="L48">	}</span>
+
+	@Test
+
+	@DisplayName(&quot;Test 1: El precio obtenido y el esperado es el mismo &quot;)
+
+	public void testAddBasket1() {
+
+<span class="fc" id="L56">		quantity = 1;</span>
+
+<span class="fc" id="L58">		price = 234.99;</span>
+
+<span class="fc" id="L60">		double expected = quantity * price;</span>
+
+<span class="fc" id="L62">		double obtained = basket.addBasket(article, quantity);</span>
+
+<span class="fc" id="L64">		assertEquals(expected, obtained);</span>
+
+		try {
+
+<span class="fc" id="L68">			basket.removeBasket(article, quantity);</span>
+
+<span class="fc" id="L70">			assertTrue(true);</span>
+
+<span class="pc" id="L72">		} catch (PurchaseException e) {</span>
+
+<span class="nc" id="L74">			fail(&quot;Impossible!!&quot;);</span>
+
+		}
+
+<span class="fc" id="L78">	}</span>
+
+	@Test
+
+	@DisplayName(&quot;Test 2: La cantidad deseada supera a la añadida&quot;)
+
+	public void testAddBasket2() {
+
+<span class="fc" id="L86">		quantity = 3;</span>
+
+<span class="pc" id="L88">		assertThrows(RuntimeException.class, () -&gt; basket.addBasket(article, quantity));</span>
+
+<span class="fc" id="L90">	}</span>
+
+	@Test
+
+	@DisplayName(&quot;Test 3: The purchase is closed&quot;)
+
+	public void testAddBasket3() throws ParseException {
+
+<span class="fc" id="L98">		SimpleDateFormat format = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+
+<span class="fc" id="L100">		Date date = format.parse(&quot;23/12/2020&quot;);</span>
+
+<span class="fc" id="L102">		basket.buy(date);</span>
+
+<span class="pc" id="L104">		assertThrows(RuntimeException.class, () -&gt; basket.addBasket(article, quantity));</span>
+
+<span class="fc" id="L106">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>Forum (16 sept 2021 0:56:22)</div></body></html>
