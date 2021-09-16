@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -108,6 +109,8 @@ class PurchaseRemoveBasketTest {
 		try {
 
 			double resultado = basket.removeBasket(article, q);
+		
+
 
 			assertEquals(expected, resultado);
 
@@ -126,18 +129,12 @@ class PurchaseRemoveBasketTest {
 	public void testRemoveBasket5() {
 
 		double expected = 234.99;
-
-		quantity = 4;
-
-		article = new Article("404", "MASK PINK", price, false, quantity);
-
-		basket.addBasket(article, quantity);
+		basket.addBasket(article, 3);
 
 		try {
 
-			double resultado = basket.removeBasket(article, 1);
-
-			assertEquals( expected,resultado);
+			double cost =basket.removeBasket(article, 2);
+			assertEquals(expected, cost);
 
 		} catch (PurchaseException e) {
 
