@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>PurchaseRemoveBasketTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Forum (16 sept 2021 0:56:22)</a> &gt; <a href="../../index.html" class="el_group">Forum</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">PurchaseRemoveBasketTest.java</span></div><h1>PurchaseRemoveBasketTest.java</h1><pre class="source lang-java linenums">package test;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>PurchaseRemoveBasketTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Forum (16 sept 2021 23:40:31)</a> &gt; <a href="../../index.html" class="el_group">Forum</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">test</a> &gt; <span class="el_source">PurchaseRemoveBasketTest.java</span></div><h1>PurchaseRemoveBasketTest.java</h1><pre class="source lang-java linenums">package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,32 +15,32 @@ import domain.Article;
 import domain.Purchase;
 import exceptions.PurchaseException;
 
-<span class="fc" id="L17">class PurchaseRemoveBasketTest {</span>
+<span class="fc" id="L18">class PurchaseRemoveBasketTest {</span>
 
-<span class="fc" id="L19">	private static Purchase basket = new Purchase();</span>
+<span class="fc" id="L20">	private static Purchase basket = new Purchase();</span>
 
 	private static double price;
 
-<span class="fc" id="L23">	private static int quantity = 1;</span>
+<span class="fc" id="L24">	private static int quantity = 1;</span>
 
-<span class="fc" id="L25">	private static Article article;</span>
+<span class="fc" id="L26">	private static Article article;</span>
 
 	@BeforeAll
 
 	public static void initialize() {
 
-<span class="fc" id="L31">		System.out.println(&quot;Inicializo y compruebo ...&quot;);</span>
+<span class="fc" id="L32">		System.out.println(&quot;Inicializo y compruebo ...&quot;);</span>
 
-<span class="fc" id="L33">		assertNull(basket.getDate());</span>
-<span class="fc" id="L34">		assertEquals(basket.getCost(), 0);</span>
+<span class="fc" id="L34">		assertNull(basket.getDate());</span>
+<span class="fc" id="L35">		assertEquals(basket.getCost(), 0);</span>
 
-<span class="fc" id="L36">		price = 234.99;</span>
+<span class="fc" id="L37">		price = 234.99;</span>
 
-<span class="fc" id="L38">		quantity = 1;</span>
+<span class="fc" id="L39">		quantity = 1;</span>
 
-<span class="fc" id="L40">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
+<span class="fc" id="L41">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
 
-<span class="fc" id="L42">	}</span>
+<span class="fc" id="L43">	}</span>
 
 	@Test
 
@@ -47,17 +48,17 @@ import exceptions.PurchaseException;
 
 	public void testRemoveBasket() throws ParseException {
 
-<span class="fc" id="L50">		SimpleDateFormat format = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="fc" id="L51">		SimpleDateFormat format = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
 
-<span class="fc" id="L52">		Date date = format.parse(&quot;23/12/2020&quot;);</span>
+<span class="fc" id="L53">		Date date = format.parse(&quot;23/12/2020&quot;);</span>
 
-<span class="fc" id="L54">		basket.buy(date);</span>
+<span class="fc" id="L55">		basket.buy(date);</span>
 
-<span class="fc" id="L56">		assertNotNull(basket.getDate());</span>
+<span class="fc" id="L57">		assertNotNull(basket.getDate());</span>
 
-<span class="pc" id="L58">		assertThrows(RuntimeException.class, () -&gt; basket.removeBasket(article, quantity));</span>
+<span class="pc" id="L59">		assertThrows(RuntimeException.class, () -&gt; basket.removeBasket(article, quantity));</span>
 
-<span class="fc" id="L60">	}</span>
+<span class="fc" id="L61">	}</span>
 
 	@Test
 
@@ -65,11 +66,11 @@ import exceptions.PurchaseException;
 
 	public void testRemoveBasket2() {
 
-<span class="fc" id="L68">		article = null;</span>
+<span class="fc" id="L69">		article = null;</span>
 
-<span class="pc" id="L70">		assertThrows(PurchaseException.class, () -&gt; basket.removeBasket(article, quantity));</span>
+<span class="pc" id="L71">		assertThrows(PurchaseException.class, () -&gt; basket.removeBasket(article, quantity));</span>
 
-<span class="fc" id="L72">	}</span>
+<span class="fc" id="L73">	}</span>
 
 	@Test
 
@@ -77,17 +78,17 @@ import exceptions.PurchaseException;
 
 	public void testRemoveBasket3() {
 
-<span class="fc" id="L80">		quantity = 1;</span>
+<span class="fc" id="L81">		quantity = 1;</span>
 
-<span class="fc" id="L82">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
+<span class="fc" id="L83">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
 
-<span class="fc" id="L84">		basket.addBasket(article, quantity);</span>
+<span class="fc" id="L85">		basket.addBasket(article, quantity);</span>
 
-<span class="fc" id="L86">		int q = 5;</span>
+<span class="fc" id="L87">		int q = 5;</span>
 
-<span class="pc" id="L88">		assertThrows(PurchaseException.class, () -&gt; basket.removeBasket(article, q));</span>
+<span class="pc" id="L89">		assertThrows(PurchaseException.class, () -&gt; basket.removeBasket(article, q));</span>
 
-<span class="fc" id="L90">	}</span>
+<span class="fc" id="L91">	}</span>
 
 	@Test
 
@@ -95,29 +96,31 @@ import exceptions.PurchaseException;
 
 	public void testRemoveBasket4() {
 
-<span class="fc" id="L98">		int q = 1;</span>
+<span class="fc" id="L99">		int q = 1;</span>
 
-<span class="fc" id="L100">		double expected = price;</span>
+<span class="fc" id="L101">		double expected = price;</span>
 
-<span class="fc" id="L102">		quantity = 3;</span>
+<span class="fc" id="L103">		quantity = 3;</span>
 
-<span class="fc" id="L104">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
+<span class="fc" id="L105">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
 
-<span class="fc" id="L106">		basket.addBasket(article, q);</span>
+<span class="fc" id="L107">		basket.addBasket(article, q);</span>
 
 		try {
 
-<span class="fc" id="L110">			double resultado = basket.removeBasket(article, q);</span>
+<span class="fc" id="L111">			double resultado = basket.removeBasket(article, q);</span>
+		
 
-<span class="fc" id="L112">			assertEquals(expected, resultado);</span>
 
-<span class="pc" id="L114">		} catch (PurchaseException e) {</span>
+<span class="fc" id="L115">			assertEquals(expected, resultado);</span>
 
-<span class="nc" id="L116">			e.printStackTrace();</span>
+<span class="pc" id="L117">		} catch (PurchaseException e) {</span>
+
+<span class="nc" id="L119">			e.printStackTrace();</span>
 
 		}
 
-<span class="fc" id="L120">	}</span>
+<span class="fc" id="L123">	}</span>
 
 	@Test
 
@@ -125,27 +128,21 @@ import exceptions.PurchaseException;
 
 	public void testRemoveBasket5() {
 
-<span class="fc" id="L128">		double expected = 234.99;</span>
-
-<span class="fc" id="L130">		quantity = 4;</span>
-
-<span class="fc" id="L132">		article = new Article(&quot;404&quot;, &quot;MASK PINK&quot;, price, false, quantity);</span>
-
-<span class="fc" id="L134">		basket.addBasket(article, quantity);</span>
+<span class="fc" id="L131">		double expected = 234.99;</span>
+<span class="fc" id="L132">		basket.addBasket(article, 3);</span>
 
 		try {
 
-<span class="fc" id="L138">			double resultado = basket.removeBasket(article, 1);</span>
+<span class="fc" id="L136">			double cost =basket.removeBasket(article, 2);</span>
+<span class="fc" id="L137">			assertEquals(expected, cost);</span>
 
-<span class="fc" id="L140">			assertEquals( expected,resultado);</span>
+<span class="pc" id="L139">		} catch (PurchaseException e) {</span>
 
-<span class="pc" id="L142">		} catch (PurchaseException e) {</span>
-
-<span class="nc" id="L144">			e.printStackTrace();</span>
+<span class="nc" id="L141">			e.printStackTrace();</span>
 
 		}
 
-<span class="fc" id="L148">	}</span>
+<span class="fc" id="L145">	}</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>Forum (16 sept 2021 0:56:22)</div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span>Forum (16 sept 2021 23:40:31)</div></body></html>
