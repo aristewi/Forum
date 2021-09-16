@@ -51,7 +51,7 @@ public class PurchaseAddBasketTest {
 
 	@DisplayName("Test 1: El precio obtenido y el esperado es el mismo ")
 
-	public void testAddBasket1() {
+	public void testAddBasket1() throws PurchaseException {
 
 		quantity = 1;
 
@@ -63,17 +63,9 @@ public class PurchaseAddBasketTest {
 
 		assertEquals(expected, obtained);
 
-		try {
+		basket.removeBasket(article, quantity);
 
-			basket.removeBasket(article, quantity);
-
-			assertTrue(true);
-
-		} catch (PurchaseException e) {
-
-			fail("Impossible!!");
-
-		}
+		assertTrue(true);
 
 	}
 
@@ -105,5 +97,4 @@ public class PurchaseAddBasketTest {
 
 	}
 
-	
 }

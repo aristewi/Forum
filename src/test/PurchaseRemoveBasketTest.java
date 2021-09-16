@@ -94,7 +94,7 @@ class PurchaseRemoveBasketTest {
 
 	@DisplayName("Test 4: Eliminar una unidad de articulo de la cesta")
 
-	public void testRemoveBasket4() {
+	public void testRemoveBasket4() throws PurchaseException {
 
 		int q = 1;
 
@@ -106,19 +106,10 @@ class PurchaseRemoveBasketTest {
 
 		basket.addBasket(article, q);
 
-		try {
+		double resultado = basket.removeBasket(article, q);
 
-			double resultado = basket.removeBasket(article, q);
-		
-
-
-			assertEquals(expected, resultado);
-
-		} catch (PurchaseException e) {
-
-			e.printStackTrace();
-
-		}
+		assertEquals(expected, resultado);
+		assertThrows(PurchaseException.class, () -> basket.removeBasket(article, q));
 
 	}
 
@@ -126,22 +117,16 @@ class PurchaseRemoveBasketTest {
 
 	@DisplayName("Test 5: Eliminar un articulo de la cesta actualizando el precio")
 
-	public void testRemoveBasket5() {
+	public void testRemoveBasket5() throws PurchaseException {
 
 		double expected = 234.99;
 		basket.addBasket(article, 3);
 
-		try {
-
-			double cost =basket.removeBasket(article, 2);
-			assertEquals(expected, cost);
-
-		} catch (PurchaseException e) {
-
-			e.printStackTrace();
-
-		}
+		double cost = basket.removeBasket(article, 2);
+		assertEquals(expected, cost);
+		assertThrows(PurchaseException.class, () -> basket.removeBasket(article, quantity));
 
 	}
 
 }
+

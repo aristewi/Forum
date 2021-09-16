@@ -3,5 +3,5 @@ projectKey=ForumCoverage
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.23273
 dashboardUrl=https://sonarcloud.io/dashboard?id=ForumCoverage
-ceTaskId=AXvrsSf9hiWD5loLu1Jz
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXvrsSf9hiWD5loLu1Jz
+ceTaskId=AXvwoYf4jWeJRfcwLYRD
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXvwoYf4jWeJRfcwLYRD
